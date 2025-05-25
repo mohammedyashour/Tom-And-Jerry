@@ -75,7 +75,12 @@ fun TomAccountScreen() {
                             .background(Color.White.copy(alpha = 0.12f))
                             .padding(horizontal = 12.dp, vertical = 12.dp)
                     ) {
-                        Text("Edit foolishness", fontSize = 10.sp, fontWeight = FontWeight.Medium, color = Color.White)
+                        Text(
+                            "Edit foolishness",
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Medium,
+                            color = Color.White
+                        )
                     }
                 }
             }

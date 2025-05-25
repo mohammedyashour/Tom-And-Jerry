@@ -93,6 +93,6 @@ fun AdBanner() {
 
 @Preview(showBackground = true)
 @Composable
-fun AdBannerPreview(){
-AdBanner()
+fun AdBannerPreview() {
+    AdBanner()
 }

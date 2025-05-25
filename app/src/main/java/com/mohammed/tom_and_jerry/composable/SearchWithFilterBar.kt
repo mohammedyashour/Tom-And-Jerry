@@ -61,7 +61,7 @@ fun SearchWithFilterBar() {
                     color = TextGrey,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Normal
-                    
+
                 )
             }
         }
@@ -83,8 +83,9 @@ fun SearchWithFilterBar() {
         }
     }
 }
+
 @Preview(showBackground = true)
 @Composable
-fun SearchWithFilterBarPreview(){
+fun SearchWithFilterBarPreview() {
     SearchWithFilterBar()
 }

@@ -7,6 +7,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.*
 import com.mohammed.tom_and_jerry.screens.JerryStoreScreen
+import com.mohammed.tom_and_jerry.screens.TomAccountScreen
+import com.mohammed.tom_and_jerry.screens.TomKitchenScreen
 import com.mohammed.tom_and_jerry.ui.theme.TomAndJerryTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,10 +20,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             TomAndJerryTheme {
                 Scaffold {
-                    JerryStoreScreen()
-
+                    //JerryStoreScreen()
+                    TomAccountScreen()
+                    //TomKitchenScreen()
+                }
             }
         }
     }
-}}
+}
 

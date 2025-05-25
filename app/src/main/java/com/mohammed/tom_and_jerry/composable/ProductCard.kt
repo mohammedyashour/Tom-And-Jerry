@@ -99,7 +99,7 @@ fun ProductCard(
                         color = Primary,
                         fontWeight = FontWeight.Normal
                     )
-                    Spacer (modifier = Modifier.width(3.dp))
+                    Spacer(modifier = Modifier.width(3.dp))
                     Text(
                         text = "cheeses",
                         fontSize = 12.sp,

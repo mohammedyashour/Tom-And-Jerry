@@ -42,7 +42,7 @@ import com.mohammed.tom_and_jerry.ui.theme.TextMain
 
 
 @Composable
-fun ElectricTomPastaScreen() {
+fun TomKitchenScreen() {
     Scaffold(
         containerColor = Background,
         contentColor = TextMain,
@@ -202,7 +202,7 @@ fun ElectricTomPastaScreen() {
                 modifier = Modifier
                     .size(width = 188.dp, height = 168.dp)
                     .align(Alignment.TopEnd)
-                    .offset(y = 54.dp,x = (-16).dp)
+                    .offset(y = 54.dp, x = (-16).dp)
             )
         }
     }
@@ -210,6 +210,6 @@ fun ElectricTomPastaScreen() {
 
 @Preview(showBackground = true)
 @Composable
-fun ElectricTomPastaScreenPreview() {
-    ElectricTomPastaScreen()
+fun TomKitchenScreenPreview() {
+    TomKitchenScreen()
 }
