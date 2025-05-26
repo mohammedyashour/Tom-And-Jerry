@@ -4,7 +4,9 @@ package com.mohammed.tom_and_jerry.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -35,6 +37,7 @@ fun TomAccountScreen() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
         ) {
             Box(
                 modifier = Modifier
@@ -90,10 +93,18 @@ fun TomAccountScreen() {
                     .offset(y = (-48).dp)
                     .clip(RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp))
                     .background(Background)
-                    .padding(start = 16.dp, end = 16.dp, top = 32.dp, bottom = 16.dp)
-            ) {
-                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    .padding(start = 16.dp, end = 16.dp, top = 32.dp, bottom = 0.dp),
+
+                ) {
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Center,
+                        
+                    ) {
                         StatCard(
                             value = "2M 12K",
                             label = "No. of quarrels",
@@ -111,7 +122,10 @@ fun TomAccountScreen() {
                             percentage = 0.25f
                         )
                     }
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Center
+                    ) {
                         StatCard(
                             value = "2M 12K",
                             label = "Hunting times",
@@ -138,7 +152,7 @@ fun TomAccountScreen() {
                     "Tom settings",
                     fontWeight = FontWeight.Bold,
                     fontSize = 20.sp,
-                    color = Color(0xDE1F1F1E)
+                    color = Color(0xDE1F1F1E),
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 SettingsItem(R.drawable.ic_bed, "Change sleeping place")
@@ -152,12 +166,13 @@ fun TomAccountScreen() {
                     fontSize = 20.sp,
                     color = Color(0xDE1F1F1E)
                 )
+
                 Spacer(modifier = Modifier.height(8.dp))
                 SettingsItem(R.drawable.ic_alert, "Mouses")
                 SettingsItem(R.drawable.ic_food, "Last stolen meal")
                 SettingsItem(R.drawable.ic_mood, "Change sleep mood")
+                Spacer(modifier = Modifier.height(20.dp))
 
-                Spacer(modifier = Modifier.height(16.dp))
                 Box(
                     modifier = Modifier
                         .fillMaxWidth(),
@@ -165,6 +180,7 @@ fun TomAccountScreen() {
                 ) {
                     Text("v.TomBeta", color = Color.Gray, fontSize = 12.sp)
                 }
+
 
             }
         }
