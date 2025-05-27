@@ -76,7 +76,7 @@ fun TomAccountScreen() {
                         modifier = Modifier
                             .clip(RoundedCornerShape(40.dp))
                             .background(Color.White.copy(alpha = 0.12f))
-                            .padding(horizontal = 12.dp, vertical = 12.dp)
+                            .padding(horizontal = 12.dp, vertical = 6.dp)
                     ) {
                         Text(
                             "Edit foolishness",

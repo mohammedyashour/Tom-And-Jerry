@@ -49,7 +49,7 @@ fun AddToCartButton(
             Text(
                 text = "•",
                 color = Color.White.copy(alpha = 0.5f),
-                fontSize = 16.sp
+                fontSize = 18.sp
             )
             Column {
                 Text(
