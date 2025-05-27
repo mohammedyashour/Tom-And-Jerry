@@ -42,7 +42,16 @@ fun SecretEpisodesScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFEFF8FF))
+            .background(
+                brush = Brush.verticalGradient(
+                    colors = listOf(
+                        Color(0xFFA3DCFF),
+                        Color(0xFFEEF4F6)
+                    ),
+                    startY = 0f,
+                    endY = 800f
+                )
+            )
             .verticalScroll(rememberScrollState())
     ) {
         SecretEpisodesHeader()
@@ -59,7 +68,6 @@ fun SecretEpisodesScreen() {
                 fontWeight = FontWeight.SemiBold,
                 color = TextMain,
                 fontSize = 20.sp,
-                modifier = Modifier.padding(start = 16.dp, top = 16.dp, bottom = 8.dp)
             )
             Row(
                 verticalAlignment = Alignment.CenterVertically
@@ -81,7 +89,8 @@ fun SecretEpisodesScreen() {
         Row(
             modifier = Modifier
                 .horizontalScroll(rememberScrollState())
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = 16.dp)
+                .padding(top = 20.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             EpisodeCard(
@@ -187,7 +196,11 @@ fun SecretEpisodesHeader() {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Column(modifier = Modifier.width(216.dp)) {
+                Column(
+                    modifier = Modifier
+                        .width(216.dp)
+                        .padding(top = 10.dp),
+                ) {
                     Text(
                         text = "Deleted episodes of Tom and Jerry!",
                         fontWeight = FontWeight.SemiBold,
@@ -215,6 +228,7 @@ fun SecretEpisodesHeader() {
 
     }
 }
+
 
 @Preview
 @Composable
