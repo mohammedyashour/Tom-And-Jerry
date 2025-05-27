@@ -19,10 +19,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TomAndJerryTheme {
-                    //JerryStoreScreen()
-                    TomAccountScreen()
-                    //TomKitchenScreen()
-                }
+                //JerryStoreScreen()
+                //TomAccountScreen()
+                SecretEpisodesScreen()
+                //TomKitchenScreen()
+            }
         }
     }
 }

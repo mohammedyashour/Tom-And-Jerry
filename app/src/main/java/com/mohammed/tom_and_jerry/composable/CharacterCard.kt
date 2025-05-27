@@ -5,11 +5,14 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,40 +35,44 @@ fun CharacterCard(
     name: String,
     description: String,
     imageRes: Int
-
 ) {
     Box(
-
         modifier = Modifier
-            .height(104.dp)
             .width(140.dp)
-            .background(backgroundColor)
-            .clip(RoundedCornerShape(16.dp))
-            .padding(horizontal = 24.dp), contentAlignment = Alignment.Center
-
-
+            .wrapContentHeight(),
+        contentAlignment = Alignment.TopCenter
     ) {
         Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 32.dp)
+                .clip(RoundedCornerShape(16.dp))
+                .background(backgroundColor)
+                .padding(vertical = 30.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(top = 20.dp),
-            verticalArrangement = Arrangement.spacedBy(5.dp)
-
-            ) {
-            Text(name, fontSize = 18.sp, fontWeight = FontWeight.Medium, color = TextMain)
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
             Text(
-                description,
+                text = name,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Medium,
+                color = TextMain
+            )
+            Text(
+                text = description,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Normal,
                 color = Color(0x991F1F1E)
             )
         }
+
+        // الصورة خارج البطاقة من الأعلى
         Image(
             painter = painterResource(id = imageRes),
             contentDescription = null,
             modifier = Modifier
-                .align(Alignment.TopCenter)
-                .offset(y = (-30).dp)
                 .size(64.dp)
+                .offset(y = (-8).dp)
         )
     }
 }
@@ -76,7 +83,7 @@ fun CharacterCardPreview() {
     CharacterCard(
         backgroundColor = Color(0xFFFCF2C5),
         name = "Tom",
-        description = "Failed stalker",
+        description = "A scammer mouse",
         imageRes = R.drawable.tom
 
     )

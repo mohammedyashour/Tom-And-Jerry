@@ -103,8 +103,8 @@ fun TomAccountScreen() {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.Center,
-                        
-                    ) {
+
+                        ) {
                         StatCard(
                             value = "2M 12K",
                             label = "No. of quarrels",

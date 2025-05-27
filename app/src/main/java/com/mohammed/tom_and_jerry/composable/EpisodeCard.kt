@@ -90,7 +90,7 @@ fun EpisodeCard(
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier
                 .align(Alignment.BottomStart)
-                .padding(12.dp, top = 12.dp, end = 12.dp,bottom = 20.dp)
+                .padding(12.dp, top = 12.dp, end = 12.dp, bottom = 20.dp)
         )
     }
 }
