@@ -13,12 +13,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
@@ -33,113 +35,123 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.mohammed.tom_and_jerry.R
 import com.mohammed.tom_and_jerry.composable.CharacterCard
 import com.mohammed.tom_and_jerry.composable.EpisodeCard
+import com.mohammed.tom_and_jerry.ui.theme.Background
 import com.mohammed.tom_and_jerry.ui.theme.Primary
 import com.mohammed.tom_and_jerry.ui.theme.TextMain
 
 
 @Composable
 fun SecretEpisodesScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(
-                brush = Brush.verticalGradient(
-                    colors = listOf(
-                        Color(0xFFA3DCFF),
-                        Color(0xFFEEF4F6)
-                    ),
-                    startY = 0f,
-                    endY = 800f
-                )
-            )
-            .verticalScroll(rememberScrollState())
-    ) {
-        SecretEpisodesHeader()
+    Scaffold(
+        containerColor = Background,
+        contentColor = TextMain,
+        modifier = Modifier.background(Background)
+    ) { innerPadding ->
 
-        Row(
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+                .fillMaxSize()
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            Color(0xFFA3DCFF),
+                            Color(0xFFEEF4F6)
+                        ),
+                        startY = 0f,
+                        endY = 1800f
+                    )
+                )
+                .verticalScroll(rememberScrollState())
+                .padding(innerPadding)
+                .statusBarsPadding()
         ) {
-            Text(
-                text = "Most watched",
-                fontWeight = FontWeight.SemiBold,
-                color = TextMain,
-                fontSize = 20.sp,
-            )
+            SecretEpisodesHeader()
+
             Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "View all",
-                    fontSize = 12.sp,
-                    color = Primary,
-                    fontWeight = FontWeight.Normal
+                    text = "Most watched",
+                    fontWeight = FontWeight.SemiBold,
+                    color = TextMain,
+                    fontSize = 20.sp,
                 )
-                Icon(
-                    painter = painterResource(id = R.drawable.arrow_right),
-                    contentDescription = null,
-                    tint = Primary,
-                    modifier = Modifier.size(16.dp)
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "View all",
+                        fontSize = 12.sp,
+                        color = Primary,
+                        fontWeight = FontWeight.Normal
+                    )
+                    Icon(
+                        painter = painterResource(id = R.drawable.arrow_right),
+                        contentDescription = null,
+                        tint = Primary,
+                        modifier = Modifier.size(16.dp)
+                    )
+                }
+            }
+            Row(
+                modifier = Modifier
+                    .horizontalScroll(rememberScrollState())
+                    .padding(horizontal = 16.dp)
+                    .padding(top = 20.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                EpisodeCard(
+                    imageRes = R.drawable.tom_cover,
+                    iconRes = R.drawable.ic_cheese,
+                    title = "Number 404 - The Cursed Cheese 🧀"
+                )
+                EpisodeCard(
+                    imageRes = R.drawable.tom_cover2,
+                    iconRes = R.drawable.ic_cheese,
+                    title = "Chase on the moon 🌕"
                 )
             }
-        }
-        Row(
-            modifier = Modifier
-                .horizontalScroll(rememberScrollState())
-                .padding(horizontal = 16.dp)
-                .padding(top = 20.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            EpisodeCard(
-                imageRes = R.drawable.tom_cover,
-                iconRes = R.drawable.ic_cheese,
-                title = "Number 404 - The Cursed Cheese 🧀"
-            )
-            EpisodeCard(
-                imageRes = R.drawable.tom_cover2,
-                iconRes = R.drawable.ic_cheese,
-                title = "Chase on the moon 🌕"
-            )
-        }
 
-        Text(
-            text = "Popular character",
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 20.sp,
-            color = TextMain,
-            modifier = Modifier.padding(start = 16.dp, top = 24.dp, bottom = 8.dp)
-        )
-
-        Row(
-            modifier = Modifier
-                .horizontalScroll(rememberScrollState())
-                .padding(horizontal = 16.dp, vertical = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            CharacterCard(
-                backgroundColor = Color(0xFFFCF2C5),
-                name = "Tom",
-                description = "Failed stalker",
-                imageRes = R.drawable.tom
+            Text(
+                text = "Popular character",
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 20.sp,
+                color = TextMain,
+                modifier = Modifier.padding(start = 16.dp, top = 24.dp, bottom = 8.dp)
             )
 
-            CharacterCard(
-                backgroundColor = Color(0xFFFCC5E4),
-                name = "Jerry",
-                description = "A scammer mouse",
-                imageRes = R.drawable.jerry
+            Row(
+                modifier = Modifier
+                    .horizontalScroll(rememberScrollState())
+                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                CharacterCard(
+                    backgroundColor = Color(0xFFFCF2C5),
+                    name = "Tom",
+                    description = "Failed stalker",
+                    imageRes = R.drawable.tom
+                )
 
-            )
-            CharacterCard(
-                backgroundColor = Color(0xFFC5E7FC),
-                name = "Jerry",
-                description = "Hungry mouse",
-                imageRes = R.drawable.jerry2
+                CharacterCard(
+                    backgroundColor = Color(0xFFFCC5E4),
+                    name = "Jerry",
+                    description = "A scammer mouse",
+                    imageRes = R.drawable.jerry
 
-            )
+                )
+                CharacterCard(
+                    backgroundColor = Color(0xFFC5E7FC),
+                    name = "Jerry",
+                    description = "Hungry mouse",
+                    imageRes = R.drawable.jerry2
+
+                )
+            }
         }
     }
 }
@@ -198,7 +210,7 @@ fun SecretEpisodesHeader() {
             ) {
                 Column(
                     modifier = Modifier
-                        .width(216.dp)
+                        .size(width=216.dp, height = 120.dp)
                         .padding(top = 10.dp),
                 ) {
                     Text(
