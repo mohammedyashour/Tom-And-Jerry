@@ -58,7 +58,7 @@ fun SecretEpisodesScreen() {
                             Color(0xFFEEF4F6)
                         ),
                         startY = 0f,
-                        endY = 1800f
+                        endY = 1000f
                     )
                 )
                 .verticalScroll(rememberScrollState())
